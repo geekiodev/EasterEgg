@@ -1,4 +1,4 @@
-(function () {
+//(function () {
     function loadScript(url, callback) {
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -21,11 +21,11 @@
           /* jQuery loaded */
           console.log('jquery loaded');
   $('a').each(function(index){
-  $(this).prepend('[*').append('*]');
+  $(this).prepend('[*+*').append('*+*]');
   });
   loadScript("styles/bookmarklet.css", function () {
           /* jQuery loaded */
           console.log('css loaded');alert('css loaded');
       });
       });
-  })();
+  //})();
