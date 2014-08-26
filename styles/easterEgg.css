@@ -25,3 +25,157 @@
 	z-index:1002;
 	overflow: auto;
 }
+
+.door-frame{
+	display: none;
+	position: relative;
+	border: 0px solid gainsboro;
+	border-bottom: 0px;
+	height: 0px;
+	width: 0px;	
+    -webkit-box-shadow: -3px -6px 3px 2px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    -3px -6px 3px 2px rgba(50, 50, 50, 0.75);
+    box-shadow:         -3px -6px 3px 2px rgba(50, 50, 50, 0.75);
+
+}
+
+.ninja{
+	display: none;
+	position: absolute;
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) 0px 0px no-repeat;
+	height: 190px;
+	width: 134px;
+	z-index: 1000;
+}
+/*
+.ninja:hover {
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -136px 0px no-repeat;
+	height: 190px;
+	width: 134px;
+}
+*/
+.ninja.state-1{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -136px 0px no-repeat;
+	height: 190px;
+	width: 134px;
+}
+
+.ninja.state-2{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -269px 0px no-repeat;
+	height: 190px;
+	width: 134px;
+}
+
+.ninja.state-3{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -402px 0px no-repeat;
+	height: 190px;
+	width: 180px;
+}
+
+.ninja.state-4{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -586px 0px no-repeat;
+	height: 190px;
+	width: 180px;
+}
+
+.ninja.state-5{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -766px 0px no-repeat;
+	height: 190px;
+	width: 180px;
+}
+
+.ninja.state-6{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -4px -194px no-repeat;
+	height: 190px;
+	width: 134px;
+}
+
+.ninja.state-7{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -166px -194px no-repeat;
+	height: 190px;
+	width: 158px;
+}
+
+.ninja.state-8{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -328px -194px no-repeat;
+	height: 190px;
+	width: 134px;
+}
+
+.ninja.state-9{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -483px -194px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-10{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -634px -194px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-11{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -784px -194px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-12{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -4px -389px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-13{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -155px -389px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-14{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -306px -389px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-15{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -457px -389px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-16{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -606px -389px no-repeat;
+	height: 190px;
+	width: 148px;
+}
+
+.ninja.state-17{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -781px -389px no-repeat;
+	height: 190px;
+	width: 124px;
+}
+
+.ninja.state-18{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -4px -585px no-repeat;
+	height: 190px;
+	width: 126px;
+}
+
+.ninja.state-19{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -152px -585px no-repeat;
+	height: 190px;
+	width: 126px;
+}
+
+.ninja.state-20{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -295px -585px no-repeat;
+	height: 194px;
+	width: 160px;
+}
+
+.ninja.state-21{
+	background: url(../images/large-ninja-shinbi-sprite-sheet.png) -456px -585px no-repeat;
+	height: 194px;
+	width: 134px;
+}
