@@ -80,6 +80,8 @@
 
     th.addListeners();
 
+    th.ninja = new Ninja();
+
     console.log('initialized');
   }
 
@@ -87,40 +89,202 @@
   {
     var th = this;
 
-    $("p").on('click', function() {
+    $("p").on('click', function(e) {
+
+      //th.closeDoor();
+      //th.openDoor();
+
+      th.closeDoor(th.attachDoor(e));
 
       th.openDoor();
     });
 
     $('#go').on('click', function(){
-      th.ninjaWalk();
+      th.ninja.walk();
     });
-    //th.openDoor();
+    
     console.log('listeners added');
   }
 
-  EasterEgg.prototype.openDoor = function()
+  EasterEgg.prototype.attachDoor = function(e)
   {
     var th = this;
-    console.log('height: ' + $('.door-frame').css('height'));
-    var height = $('.door-frame').css('height').slice(0, -2);
-    console.log('height: ' + height * 2);
-    var newHeight = ((height * 2) + 'px');
+
+    $(e.target).before($('.door-frame'));
+    
+    console.log('door attached');
+  }
+
+  EasterEgg.prototype.openDoor = function(callback)
+  {
+    var th = this;
+    
+    $('.door-frame').fadeIn().animate({
+    height: '200px',
+    width: '150px',
+    //top: '-200px',
+    borderWidth: '10px',
+    opacity: 1
+  }, 1500, function(){
+    $(this).css({'z-index' : '100'});
+
+    th.ninja.enter();
+
+    th.ninja.showOff();
+
+    if(typeof callback === "function")
+    {
+      callback();
+    }
+  } );
+
+/*
+$('.door-frame').animate({
+    height: '0px',
+    width: '0px',
+    //top: '-200px',
+    borderWidth: '0px',
+    opacity: 0
+  }, 1500, function(){
 
     $('.door-frame').fadeIn().animate({
     height: '200px',
     width: '150px',
-    top: '-200px',
+    //top: '-200px',
     borderWidth: '10px',
     opacity: 1
   }, 1500, function(){
+      $(this).css({'z-index' : '100'});
 
-    th.animateNinja();
+      th.ninja.enter();
 
+      th.ninja.showOff();
+
+      if(callback)
+      {
+        callback();
+      }
+    } );
     
   } );
 
+*/
     console.log('door opened');
+  }
+
+  EasterEgg.prototype.closeDoor = function(callback)
+  {
+    var th = this;
+    
+    $('.door-frame').animate({
+    height: '0px',
+    width: '0px',
+    //top: '-200px',
+    borderWidth: '0px',
+    opacity: 0
+  }, 1500, function(){
+
+    /*$('.door-frame').animate({
+      top: '0px',
+      borderWidth: '10px',
+      opacity: 1
+    }, 100);*/
+    //th.ninja.enter();
+
+    //th.ninja.showOff();
+    if(callback)
+    {
+      callback();
+    }
+    
+  } );
+
+    console.log('door closed');
+  }
+
+  var Ninja = function()
+  {
+    this.init();
+  }
+
+  Ninja.prototype.init = function()
+  {
+    var th = this;
+  }
+
+  Ninja.prototype.addListeners = function()
+  {
+    var th = this;
+  }
+
+  Ninja.prototype.enter = function()
+  {
+    var th = this;
+
+    $('.ninja').fadeIn();
+  }
+
+  Ninja.prototype.walk = function()
+  {
+    var th = this;
+
+    var idx = 1;
+
+    $('.ninja').attr('class', 'ninja state-8');
+    
+    var walk = setInterval(function(){
+
+        if($('.ninja').attr('class') == 'ninja state-14')
+        {
+          $('.ninja').attr('class', 'ninja state-8');
+        }
+        else
+        {
+          $('.ninja').attr('class', 'ninja state-14');
+        }
+        
+        var offset = $('.ninja').offset();
+        var newLeft = offset.left + 1;
+        var newLeftStr = newLeft + 'px';
+
+        if(newLeft >= $(window).width())
+        {
+          newLeftStr = '0px';
+        }
+
+        $('.ninja').animate({
+          left:  newLeftStr
+        }, 50);
+
+        
+        idx++;
+
+        if(idx > 21)
+        {
+          clearInterval(walk);
+        }
+      }, 100);
+  }
+
+  Ninja.prototype.showOff = function()
+  {
+    var th = this;
+
+    var idx = 1;
+
+    var anim = setInterval(function(){
+
+        $('.ninja').removeClass('state-' + idx);
+        $('.ninja').addClass('state-' + ++idx);
+
+        
+        //idx++;
+
+        if(idx > 21)
+        {
+          clearInterval(anim);
+        }
+      }, 100);
   }
 
   EasterEgg.prototype.animateNinja = function()
@@ -136,7 +300,7 @@
         $('.ninja').removeClass('state-' + idx);
         $('.ninja').addClass('state-' + ++idx);
 
-        console.log('index is: ' + idx);
+        
         //idx++;
 
         if(idx > 21)
@@ -144,32 +308,6 @@
           clearInterval(anim);
         }
       }, 100);
-  }
-
-  EasterEgg.prototype.ninjaWalk = function()
-  {
-    var th = this;
-
-    var idx = 1;
-
-    $('.ninja').removeClass('state-*');
-    /*
-    var walk = setInterval(function(){
-
-        $('.ninja').removeClass('state-1');
-        $('.ninja').addClass('state-1');
-
-        //$('.ninja').toggle('state-1');
-
-        console.log('index is: ' + idx);
-        idx++;
-
-        if(idx > 21)
-        {
-          clearInterval(walk);
-        }
-      }, 1000);
-    */
   }
 
 
